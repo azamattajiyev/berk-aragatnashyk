@@ -20245,3 +20245,8 @@ disabled look for disabled choices in the results dropdown
 .height-200{
 	height: 300px;
 }
+.my-pic{
+	width: 290px;
+	height: 220px;
+	cursor: pointer;
+}
