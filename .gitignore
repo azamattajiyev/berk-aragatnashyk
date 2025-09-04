@@ -1,0 +1,48 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon?
+Icon?
+
+# Thumbnails
+._*
+
+# Spotlight files
+.Spotlight-V100
+
+# Trash
+.Trashes
+
+# macOS folder attributes
+*.DocumentRevisions-V100
+*.fseventsd
+*.TemporaryItems
+*.apdisk
+
+# Node.js dependencies (if you're using npm/yarn)
+node_modules/
+
+# Build directories (optional)
+dist/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Others
+*.log
