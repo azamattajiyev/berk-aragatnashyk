@@ -1,68 +1,125 @@
 /* Utility */
 .hidden {
-    display: none;
-  }
-  .show{
-    display: flex;
-  }
-  
-  /* Overlay */
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  /* Modal Box */
-  .modal {
-    background: #FFFFFF;
-    width: 1080px;
-    border-radius: 16px;
-    padding: 25px 24px;
-    position: relative;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  display: none;
+}
+.show{
+  display: flex;
+}
 
-  .modal-close {
-    width: 24px;
-    height: 24px;
-    font-size: 22px;
-    background: none;
-    align-self:end;
-    color: black;
-    border:1px solid black;
-    border-radius: 100%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .modal__content{
-    display: flex;
-    gap:5px;
-    justify-content: space-between;
-  }
-  .modal__content h1{
-    font-size: 40px;
-  }
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 4, 10, 0.82);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* Modal Box — scoped to .modal-overlay so it never collides with Bootstrap's
+   own unrelated ".modal" component (used by the #modalCta contact popup). */
+.modal-overlay .modal {
+  background: #0a0d1a;
+  border: 1px solid rgba(255,255,255,.12);
+  width: 1080px;
+  max-width: 100%;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border-radius: 4px;
+  padding: 30px 30px 26px;
+  position: relative;
+  text-align: left;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  font-family: 'Poppins', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: auto;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 1;
+  background: transparent;
+  align-self: flex-end;
+  color: #d3d7de;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s ease, color .2s ease;
+  flex: 0 0 auto;
+}
+.modal-close:hover{
+  color: #fff;
+  border-color: #4c5ad0;
+  background: #2b3990;
+}
+
+.modal__content{
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.modal__content h1{
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.modal__content p{
+  font-size: 14.5px;
+  line-height: 1.75;
+  margin: 0 0 14px;
+}
+.modal__content ul{
+  margin: 0 0 14px;
+  padding-left: 20px;
+}
+.modal__content li{
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 6px;
+}
+
 .modal__english{
-    width: 50%;
-    background-color: #32348d;
-    color: white;
-    padding: 0 5px;
+  width: 52%;
+  background-color: #2b3990;
+  color: #fff;
+  padding: 26px 26px;
 }
-.modal__english h1{
-    color: white;
-}
-.modal__russian{
-    width: 45%;
+.modal__english h1{ color: #fff; }
+.modal__english a{ color: #cfd3ff; }
 
+.modal__russian{
+  width: 48%;
+  color: #b9bdc8;
+  padding: 26px 26px;
+}
+.modal__russian h1{ color: #8890a3; }
+
+/* Responsive: stack English on top (primary), Russian below, full width */
+@media (max-width: 860px){
+  .modal-overlay .modal{ padding: 22px 18px 20px; }
+  .modal__content{
+    flex-direction: column;
+  }
+  .modal__english,
+  .modal__russian{
+    width: 100%;
+    padding: 20px 4px;
+  }
+  .modal__content h1{ font-size: 21px; }
 }
